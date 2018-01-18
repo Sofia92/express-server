@@ -22,8 +22,8 @@ router.get('/:id', async (request, response) => {
 });
 
 router.put('/:id', async (request, response) => {
-    const {name} = request.body, {id} = request.params;
-    const {rows} = await db.query('UPDATE heroes SET name = $1 WHERE id = $2', [name, id]);
+    const {name, phone, hobby} = request.body, {id} = request.params;
+    const {rows} = await db.query('UPDATE heroes SET name = $2, phone = $3, hobby = $4 WHERE id = $1', [id, name, phone, hobby]);
     response.json(rows);
 });
 
