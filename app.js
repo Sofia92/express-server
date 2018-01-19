@@ -10,6 +10,10 @@ const users = require('./routes/users');
 const heroes = require('./routes/heroes');
 const articles = require('./routes/articles');
 const categories = require('./routes/categories');
+const account = require('./routes/account/account');
+const account_book = require('./routes/account/accountBook');
+const account_category = require('./routes/account/category');
+const account_journal = require('./routes/account/journal');
 
 const app = express();
 
@@ -30,6 +34,10 @@ app.use('/users', users);
 app.use('/api/heroes', heroes);
 app.use('/api/articles', articles);
 app.use('/api/categories', categories);
+app.use('/api/accounts', account);
+app.use('/api/account_books', account_book);
+app.use('/api/account_categories', account_category);
+app.use('/api/account_journals', account_journal);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
